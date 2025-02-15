@@ -10,16 +10,16 @@ function Body() {
 
       <div className="flex mx-4 mt-4">
         {/* Sidebar */}
-        <aside className="w-1/6 bg-gray-200 p-4">
+        <aside className="w-1/6 bg-gray-200 p-4 h-64 overflow-y-auto">
           <ul className="space-y-2">
             <li className="p-2 bg-white shadow-md rounded">Gia vị</li>
             <li className="p-2 bg-white shadow-md rounded">Đóng chai</li>
             <li className="p-2 bg-white shadow-md rounded">Nước dùng</li>
             <li className="p-2 bg-white shadow-md rounded">Tươi sống</li>
             <li className="p-2 bg-white shadow-md rounded">Đóng chai</li>
+            <li className="p-2 bg-white shadow-md rounded">Đóng chai</li>
           </ul>
         </aside>
-
         {/* Brand Image */}
         <div className="flex-1 bg-white p-4 rounded-lg shadow-md text-center mx-4 h-35">
           <img src={IMG.icon2} alt="Ảnh thương hiệu" className="w-full h-auto rounded-lg" />
