@@ -1,0 +1,21 @@
+/* Định dạng thanh cuộn */
+::-webkit-scrollbar {
+  width: 7px; /* Giảm độ rộng thanh cuộn */
+}
+
+/* Màu nền của thanh cuộn */
+::-webkit-scrollbar-track {
+  background: #c8ad7f; /* Màu nền thanh cuộn */
+  border-radius: 10px;
+}
+
+/* Màu của thanh cuộn */
+::-webkit-scrollbar-thumb {
+  background: white; /* Màu thanh cuộn */
+  border-radius: 10px;
+}
+
+/* Hiệu ứng khi di chuột vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d1d1;
+}

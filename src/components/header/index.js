@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <div className="bg-primary text-white text-center py-1">
-        <p className="text-sm">Địa chỉ</p>
+        <p className="text-sm">Địa chỉ: CanTho City.</p>
       </div>
 
       <header className="bg-secondary text-white p-4 shadow-md">
