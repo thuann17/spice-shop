@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Thêm state cho menu mobile
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,10 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
@@ -33,7 +38,11 @@ const Header = () => {
           <h1 className="text-3xl font-bold text-textMain">Logo</h1>
 
           {/* Nút mở menu trên mobile */}
-          <button className="lg:hidden text-white" aria-label="Toggle menu">
+          <button
+            className="lg:hidden text-white"
+            aria-label="Toggle menu"
+            onClick={toggleMenu}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -51,8 +60,12 @@ const Header = () => {
           </button>
 
           {/* Menu */}
-          <nav className="lg:flex space-x-6 text-textMain font-medium hidden lg:block">
-            <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 justify-start">
+          <nav
+            className={`absolute top-full left-0 w-full bg-secondary lg:static lg:w-auto lg:bg-transparent transition-transform ${
+              isMenuOpen ? "block" : "hidden"
+            } lg:flex space-x-6 text-textMain font-medium`}
+          >
+            <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 justify-start p-4 lg:p-0">
               <li>
                 <a href="#" className="hover:text-[#8C5A3D]">
                   Trang Chủ

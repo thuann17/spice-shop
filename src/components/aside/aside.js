@@ -1,6 +1,6 @@
 import React from "react";
 
-const categories = ["Gia vị", "Đóng chai", "Nước dùng", "Tươi sống"];
+const categories = ["Gia vị", "Đóng chai", "Nước dùng", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống", "Tươi sống"];
 
 const Aside = ({ onSelectCategory }) => {
     return (<>
