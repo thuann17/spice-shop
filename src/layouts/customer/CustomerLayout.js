@@ -11,13 +11,12 @@ const CustomerLayout = () => {
       <Header />
       <div className="flex flex-col min-h-screen bg-background">
         <Banner />
-        {/* Main Content */}
         <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
           <Aside />
           <div className="col-span-10">
             <CardGrid />
           </div>
-        </div>
+        </div>{" "}
         <Fotter />
       </div>
     </>
