@@ -2,20 +2,22 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white py-6 mt-4 rounded-lg mx-4">
+    <footer className="bg-primary text-white py-6">
       <div className="container mx-auto flex flex-wrap justify-center items-start space-x-8">
         {/* Phần 1: Giới thiệu chung về website */}
         <div className="max-w-xs">
           <h3 className="text-xl font-bold mb-3 text-center">Giới Thiệu</h3>
           <p className="text-sm text-center">
-            Website của chúng tôi cung cấp các sản phẩm gia dụng chất lượng cao, 
+            Website của chúng tôi cung cấp các sản phẩm gia dụng chất lượng cao,
             phục vụ nhu cầu hàng ngày của bạn với dịch vụ tận tâm.
           </p>
         </div>
 
         {/* Phần 2: Những giá trị hữu ích */}
         <div className="max-w-xs">
-          <h3 className="text-xl font-bold mb-3 text-center">Những Giá Trị Hữu Ích</h3>
+          <h3 className="text-xl font-bold mb-3 text-center">
+            Những Giá Trị Hữu Ích
+          </h3>
           <ul className="list-disc pl-5 text-sm">
             <li>Chất lượng sản phẩm đảm bảo</li>
             <li>Dịch vụ khách hàng chu đáo</li>
@@ -26,7 +28,9 @@ const Footer = () => {
 
         {/* Phần 3: Thông tin liên hệ */}
         <div className="max-w-xs">
-          <h3 className="text-xl font-bold mb-3 text-center">Thông Tin Liên Hệ</h3>
+          <h3 className="text-xl font-bold mb-3 text-center">
+            Thông Tin Liên Hệ
+          </h3>
           <p className="text-sm text-center">📍 CanTho City, Việt Nam</p>
           <p className="text-sm text-center">📞 0123-456-789</p>
           <p className="text-sm text-center">✉️ contact@example.com</p>

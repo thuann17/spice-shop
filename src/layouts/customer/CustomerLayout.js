@@ -53,8 +53,8 @@ const CustomerLayout = () => {
             <CardGrid products={productData[selectedCategory] || []} />
           </div>
         </div>
-        <Fotter />
       </div>
+      <Fotter />
     </>
   );
 };
