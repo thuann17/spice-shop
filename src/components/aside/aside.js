@@ -6,21 +6,14 @@ const categories = [
   "Đóng chai",
   "Nước dùng",
   "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
-  "Tươi sống",
+  
 ];
 
 const Aside = ({ onSelectCategory }) => {
   return (
     <>
       <div className="col-span-3">
-        <aside className=" bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-6 mx-4">
+        <aside className="bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-6 mx-4">
           <ul className="space-y-2">
             {categories.map((category, index) => (
               <li
@@ -33,11 +26,14 @@ const Aside = ({ onSelectCategory }) => {
             ))}
           </ul>
         </aside>
-        <div className="w-3/4 mt-16 mx-9 ">
-          <RangeSlider />
+        <div className="flex justify-center mt-16">
+          <div className="w-3/4">
+            <RangeSlider />
+          </div>
         </div>
       </div>
     </>
   );
+  
 };
 export default Aside;
