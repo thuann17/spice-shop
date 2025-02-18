@@ -1,24 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
+      {/* Thanh địa chỉ nhỏ phía trên */}
       <div className="bg-primary text-white text-center py-1">
         <p className="text-sm">Địa chỉ: CanTho City.</p>
       </div>
 
-      <header className="bg-secondary text-white p-4 shadow-md">
+      {/* Header chính với hiệu ứng */}
+      <header
+        className={`fixed left-0 w-full bg-secondary text-white p-4 z-50 transition-all duration-50 ${
+          isScrolled ? "top-0 shadow-md" : "top-6"
+        }`}
+      >
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-3xl font-bold text-textMain">Logo</h1>
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden text-white"
-            aria-label="Toggle menu"
-          >
+
+          {/* Nút mở menu trên mobile */}
+          <button className="lg:hidden text-white" aria-label="Toggle menu">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -34,11 +49,9 @@ const Header = () => {
               />
             </svg>
           </button>
-          <nav
-            className={`lg:flex space-x-6 text-textMain font-medium ${
-              isMenuOpen ? "block" : "hidden"
-            } lg:block`}
-          >
+
+          {/* Menu */}
+          <nav className="lg:flex space-x-6 text-textMain font-medium hidden lg:block">
             <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 justify-start">
               <li>
                 <a href="#" className="hover:text-[#8C5A3D]">
@@ -47,17 +60,17 @@ const Header = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-[#8C5A3D]">
-                  Trang Chủ
+                  Sản Phẩm
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-[#8C5A3D]">
-                  Trang Chủ
+                  Giới Thiệu
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-[#8C5A3D]">
-                  Trang Chủ
+                  Liên Hệ
                 </a>
               </li>
             </ul>
