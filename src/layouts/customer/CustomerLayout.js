@@ -29,7 +29,9 @@ const productData = {
     { id: 11, name: "Nước tương", price: "90.000 VND", img: img3 },
     { id: 12, name: "Dầu hào", price: "120.000 VND", img: img4 },
   ],
-  "Nước dùng": [{ id: 13, name: "Nước hầm xương", price: "200.000 VND", img: img5 }],
+  "Nước dùng": [
+    { id: 13, name: "Nước hầm xương", price: "200.000 VND", img: img5 },
+  ],
   "Tươi sống": [
     { id: 14, name: "Thịt bò", price: "500.000 VND", img: img6 },
     { id: 15, name: "Cá hồi", price: "450.000 VND", img: img7 },
@@ -45,16 +47,16 @@ const CustomerLayout = () => {
       <div className="flex flex-col min-h-screen bg-background mt-3">
         <Banner />
         <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
-        <Aside onSelectCategory={setSelectedCategory} />
+          <Aside onSelectCategory={setSelectedCategory} />
 
-          <div className="col-span-10">
-          <CardGrid products={productData[selectedCategory] || []} />
-
+          <div className="col-span-9">
+            <CardGrid products={productData[selectedCategory] || []} />
           </div>
-        </div>{" "}
+        </div>
         <Fotter />
       </div>
     </>
   );
 };
+
 export default CustomerLayout;
