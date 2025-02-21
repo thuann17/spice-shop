@@ -1,13 +1,5 @@
 import React from "react";
-import RangeSlider from "../range/index";
-
-const categories = [
-  "Gia vị",
-  "Đóng chai",
-  "Nước dùng",
-  "Tươi sống",
-  
-];
+const categories = ["Gia vị", "Đóng chai", "Nước dùng", "Tươi sống"];
 
 const Aside = ({ onSelectCategory }) => {
   return (
@@ -26,14 +18,8 @@ const Aside = ({ onSelectCategory }) => {
             ))}
           </ul>
         </aside>
-        <div className="flex justify-center mt-16">
-          <div className="w-3/4">
-            <RangeSlider />
-          </div>
-        </div>
       </div>
     </>
   );
-  
 };
 export default Aside;

@@ -12,6 +12,7 @@ import img4 from "../../assets/images/icon.png";
 import img5 from "../../assets/images/hamxuong.jpg";
 import img6 from "../../assets/images/thitbo.jpg";
 import img7 from "../../assets/images/ca-hoi-na-uy(1).jpg";
+import FloatingButtons from "../../components/FloatingButtons/FloatingButton";
 const productData = {
   "Gia vị": [
     { id: 1, name: "Bột ngọt", price: "50.000 VND", img: img1 },
@@ -48,13 +49,13 @@ const CustomerLayout = () => {
         <Banner />
         <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
           <Aside onSelectCategory={setSelectedCategory} />
-
           <div className="col-span-9">
             <CardGrid products={productData[selectedCategory] || []} />
           </div>
         </div>
       </div>
       <Fotter />
+      <FloatingButtons />
     </>
   );
 };
