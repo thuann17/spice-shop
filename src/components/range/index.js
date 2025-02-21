@@ -74,7 +74,7 @@ const RangeSlider = () => {
             htmlFor="min-price"
             className="block text-sm font-medium text-textMain mb-2"
           >
-            Min price: {minValue}
+            Thấp nhất: {minValue}
           </label>
         </div>
         <div className="w-full ml-2">
@@ -82,7 +82,7 @@ const RangeSlider = () => {
             htmlFor="max-price"
             className="block text-sm font-medium text-textMain mb-2"
           >
-            Max price: {maxValue}
+            Cao nhất: {maxValue}
           </label>
         </div>
       </div>

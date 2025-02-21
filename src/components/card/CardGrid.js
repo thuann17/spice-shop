@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "./card";
 
 const CardGrid = ({ products }) => {
-  const itemsPerPage = 8; // Số sản phẩm trên mỗi trang
+  const itemsPerPage = 16; // Số sản phẩm trên mỗi trang
   const [currentPage, setCurrentPage] = useState(1);
 
   // Tính toán số trang tối đa
@@ -22,7 +22,7 @@ const CardGrid = ({ products }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {currentProducts.length > 0 ? (
           currentProducts.map((product) => (
@@ -38,17 +38,7 @@ const CardGrid = ({ products }) => {
       {/* Phân trang */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
-          <button
-            className={`px-4 py-2 rounded-lg ${
-              currentPage === 1
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-primary text-white hover:bg-secondary"
-            }`}
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Trước
-          </button>
+          
 
           {[...Array(totalPages)].map((_, index) => (
             <button
@@ -64,17 +54,7 @@ const CardGrid = ({ products }) => {
             </button>
           ))}
 
-          <button
-            className={`px-4 py-2 rounded-lg ${
-              currentPage === totalPages
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-primary text-white hover:bg-secondary"
-            }`}
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            Sau
-          </button>
+          
         </div>
       )}
     </div>
