@@ -1,9 +1,11 @@
 import React from "react";
-import CustomerLayout from "./layouts/customer/CustomerLayout";
+
+import AppRouter from "./router";
 function App() {
   return (
     <>
-      <CustomerLayout />
+      <AppRouter />
+      
     </>
   );
 }
