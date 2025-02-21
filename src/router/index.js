@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Menus from "../pages/Menu/Menus";
+import Menus from "../pages/Menu/MenuList";
 import CustomerLayout from "../layouts/customer/CustomerLayout";
 
 const AppRouter = () => {
@@ -7,7 +7,7 @@ const AppRouter = () => {
     <Router>
       <Routes>
         <Route path="/" element={<CustomerLayout/>} />
-        <Route path="/menus" element={<Menus />} />
+        <Route path="/menu-list" element={<Menus />} />
       </Routes>
     </Router>
   );
