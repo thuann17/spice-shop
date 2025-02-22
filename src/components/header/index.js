@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 
-const Header = () => {
+const categories = ["Sốt và nước chấm", "Món ăn", "Dịch vụ lưu động"];
+const menuItems = [
+  { name: "Hệ Thống", link: "#", requiresAuth: true }, // Yêu cầu nhập password
+  { name: "Trang Chủ", link: "/" },
+  { name: "Giới Thiệu", link: "/about" },
+  { name: "Liên Hệ", link: "/contact" },
+];
+
+const Header = ({ onSelectCategory }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Thêm state cho menu mobile
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -21,23 +27,73 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSystemClick = () => {
+    setIsModalOpen(true); // Mở modal khi bấm vào "Hệ Thống"
+  };
+
+  const handlePasswordSubmit = () => {
+    const correctPassword = "123456"; // Đổi mật khẩu tại đây
+    if (password === correctPassword) {
+      //
+      setIsModalOpen(false);
+      setPassword(""); // Reset password field
+      setError(""); // Xóa lỗi
+      window.location.href = "/admin"; // Chuyển hướng sau khi đăng nhập
+    } else {
+      setError("Mật khẩu không đúng!");
+    }
+  };
+
   return (
     <>
-      {/* Thanh địa chỉ nhỏ phía trên */}
       <div className="bg-primary text-white text-center py-1">
         <p className="text-sm">Địa chỉ: CanTho City.</p>
       </div>
 
-      {/* Header chính với hiệu ứng */}
       <header
-        className={`fixed left-0 w-full bg-secondary text-white p-4 z-50 transition-all duration-50 ${
+        className={`fixed left-0 w-full bg-secondary text-white p-4 z-50 transition-all duration-200 ${
           isScrolled ? "top-0 shadow-md" : "top-6"
         }`}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-textMain">Logo</h1>
+          <div className="flex items-center space-x-6">
+            <h1 className="text-3xl font-bold text-textMain">Logo</h1>
+            <nav className="hidden lg:flex space-x-6 text-textMain font-medium">
+              {categories.map((category, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="relative px-6 py-3 rounded-md transition-all duration-300
+        bg-gradient-to-r from-[#9C6B4A] to-[#D7A98C] text-white shadow-md
+        hover:shadow-lg hover:scale-105 hover:from-[#D7A98C] hover:to-[#9C6B4A] hover:text-[#FFF5E1]"
+                  onClick={() => onSelectCategory(category)}
+                >
+                  {category}
+                </a>
+              ))}
+            </nav>
+          </div>
 
-          {/* Nút mở menu trên mobile */}
+          <nav className="hidden lg:flex space-x-6 text-textMain font-medium">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                className="hover:text-[#8C5A3D] cursor-pointer"
+                onClick={
+                  item.requiresAuth
+                    ? (e) => {
+                        e.preventDefault();
+                        handleSystemClick();
+                      }
+                    : null
+                }
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
+
           <button
             className="lg:hidden text-white"
             aria-label="Toggle menu"
@@ -58,38 +114,44 @@ const Header = () => {
               />
             </svg>
           </button>
-
-          {/* Menu */}
-          <nav
-            className={`absolute top-full left-0 w-full bg-secondary lg:static lg:w-auto lg:bg-transparent transition-transform ${
-              isMenuOpen ? "block" : "hidden"
-            } lg:flex space-x-6 text-textMain font-medium`}
-          >
-            <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 justify-start p-4 lg:p-0">
-              <li>
-                <a href="#" className="hover:text-[#8C5A3D]">
-                  Trang Chủ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#8C5A3D]">
-                  Sản Phẩm
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#8C5A3D]">
-                  Giới Thiệu
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#8C5A3D]">
-                  Liên Hệ
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </header>
+
+      {/* Modal nhập password */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
+            <h2 className="text-xl font-bold mb-4">Nhập mật khẩu</h2>
+            <input
+              type="password"
+              className="w-full border p-2 rounded-md"
+              placeholder="Nhập mật khẩu..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            <div className="mt-4 flex justify-between">
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded-md"
+                onClick={() => {
+                  setIsModalOpen(false);
+                  setPassword(""); // Xóa ký tự trong ô nhập mật khẩu khi đóng modal
+                  setError(""); // Xóa thông báo lỗi nếu có
+                }}
+                
+              >
+                Hủy
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded-md"
+                onClick={handlePasswordSubmit}
+              >
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

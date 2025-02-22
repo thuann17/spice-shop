@@ -1,23 +1,27 @@
 import React from "react";
-const categories = ["Gia vị", "Đóng chai", "Nước dùng", "Tươi sống"];
+import RangeSlider from "../range/index";
+import videoFile from "../../assets/images/6336741841146.mp4";
+
+
+const categories = ["Sốt và nước chấm", "Món ăn", "Dịch vụ lưu động"];
 
 const Aside = ({ onSelectCategory }) => {
   return (
     <>
       <div className="col-span-3">
-        <aside className="bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-6 mx-4">
-          <ul className="space-y-2">
-            {categories.map((category, index) => (
-              <li
-                key={index}
-                className="p-2 bg-secondary shadow-md rounded cursor-pointer hover:bg-primary transition"
-                onClick={() => onSelectCategory(category)}
-              >
-                {category}
-              </li>
-            ))}
-          </ul>
+        <aside className="bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-5 mx-4">
+        <video 
+          controls 
+          loop 
+          autoPlay 
+          muted 
+          className="w-full h-full rounded-lg shadow-lg"
+        >
+        <source src={videoFile} type="video/mp4" />
+
+        </video>
         </aside>
+        
       </div>
     </>
   );
