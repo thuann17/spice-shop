@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const categories = ["Sốt và nước chấm", "Món ăn", "Dịch vụ lưu động"];
+const categories = [
+  { name: "Sốt và nước chấm", link: "/sauces" },
+  { name: "Món ăn", link: "/foods" },
+  { name: "Dịch vụ lưu động", link: "/mobile-services" },
+];
+
 const menuItems = [
   { name: "Hệ Thống", link: "#", requiresAuth: true }, // Yêu cầu nhập password
   { name: "Trang Chủ", link: "/" },
@@ -62,13 +67,12 @@ const Header = ({ onSelectCategory }) => {
               {categories.map((category, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={category.link} // Gắn link vào đây
                   className="relative px-6 py-3 rounded-md transition-all duration-300
         bg-gradient-to-r from-[#9C6B4A] to-[#D7A98C] text-white shadow-md
         hover:shadow-lg hover:scale-105 hover:from-[#D7A98C] hover:to-[#9C6B4A] hover:text-[#FFF5E1]"
-                  onClick={() => onSelectCategory(category)}
                 >
-                  {category}
+                  {category.name}
                 </a>
               ))}
             </nav>
@@ -138,7 +142,6 @@ const Header = ({ onSelectCategory }) => {
                   setPassword(""); // Xóa ký tự trong ô nhập mật khẩu khi đóng modal
                   setError(""); // Xóa thông báo lỗi nếu có
                 }}
-                
               >
                 Hủy
               </button>
