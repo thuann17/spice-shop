@@ -1,5 +1,4 @@
 import React from "react";
-import RangeSlider from "../range/index";
 import videoFile from "../../assets/images/6336741841146.mp4";
 
 
@@ -9,13 +8,13 @@ const Aside = ({ onSelectCategory }) => {
   return (
     <>
       <div className="col-span-3">
-        <aside className="bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-5 mx-4">
+        <aside className="bg-button p-4 h-[400px] mt-5 mx-4">
         <video 
           controls 
           loop 
           autoPlay 
           muted 
-          className="w-full h-full rounded-lg shadow-lg"
+          className="w-full h-full rounded-lg shadow-lg object-cover"
         >
         <source src={videoFile} type="video/mp4" />
 
