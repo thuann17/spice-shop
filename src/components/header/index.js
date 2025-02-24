@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const categories = [
   { name: "Sốt và nước chấm", link: "/sauces" },
   { name: "Món ăn", link: "/foods" },
-  { name: "Dịch vụ lưu động", link: "/mobile-services" },
+  { name: "Dịch vụ lưu động", link: "/services" },
 ];
 
 const menuItems = [

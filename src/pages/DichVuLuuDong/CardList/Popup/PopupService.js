@@ -8,12 +8,11 @@ const PopupService = ({ service, closePopup }) => {
       onClick={closePopup}
     >
       <div
-        className="mx-1 rounded-xl shadow-2xl max-w-md w-full relative"
+        className="mx-10 rounded-xl shadow-2xl max-w-md w-full relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Nút đóng (X) */}
         <button
-          className="absolute top-3 right-3 bg-gray-300 text-gray-700 hover:bg-gray-400 rounded-full w-8 h-8 flex items-center justify-center"
+          className="absolute z-50 top-3 right-3 bg-[#eee8e3] text-gray-700 hover:bg-gray-400 rounded-full w-8 h-8 flex items-center justify-center"
           onClick={closePopup}
         >
           ✕

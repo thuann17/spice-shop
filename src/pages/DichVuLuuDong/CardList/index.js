@@ -33,7 +33,7 @@ export const Items = [
   },
   {
     id: 3,
-    name: "Lẩu Hải Sản Chua Cay",
+    name: " Hải Sản Cay",
     price: 890000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",

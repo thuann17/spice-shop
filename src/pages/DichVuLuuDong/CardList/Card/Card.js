@@ -9,6 +9,8 @@ const Card = ({ name, price, image }) => {
         src={image}
         alt={name}
       />
+      {/* Lớp phủ mờ dần từ trên xuống */}
+      <div className=" absolute inset-0 bg-gradient-to-b from-white/100 via-white/20 to-transparent "></div>
 
       {/* Nhãn yêu thích */}
       <div className="absolute top-2 left-2 bg-[#E74C3C] text-white text-xs font-bold px-2 py-1 rounded">

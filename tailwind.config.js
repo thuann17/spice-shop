@@ -12,6 +12,9 @@ module.exports = {
         button: "#D4A373",
         border: "#C8AD7F",
       },
+      fontFamily: {
+        custom: ["Dancing Script", "sans-serif"],
+      },
     },
   },
   plugins: [],
