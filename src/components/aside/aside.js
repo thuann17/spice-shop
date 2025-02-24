@@ -8,7 +8,7 @@ const Aside = ({ onSelectCategory }) => {
     <>
       <div className="col-span-3">
 
-        <aside className="bg-button p-4 h-[400px] overflow-y-auto rounded-lg scrollbar scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-300 mt-5 mx-4">
+        <aside className="bg-button p-4 h-[400px] mt-5 mx-4">
           <video
             controls
             loop
