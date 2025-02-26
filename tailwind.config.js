@@ -8,7 +8,7 @@ module.exports = {
         primary: "#8B5E3B",
         secondary: "#E5C8A6",
         textMain: "#4A3F35",
-        textSub: "#6D625B",
+        textSub: "#primary",
         button: "#D4A373",
         border: "#C8AD7F",
       },
