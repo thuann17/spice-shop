@@ -1,4 +1,4 @@
-import lo_xo from "./../../../../assets/images/lo-xo.png";
+
 const CardDetail = ({ service }) => {
   if (!service) {
     return (
@@ -7,30 +7,7 @@ const CardDetail = ({ service }) => {
   }
 
   return (
-    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-white  text-gray-800  shadow-xl max-w-md mx-auto ">
-      <div
-        className="absolute w-[450px] h-[590px] inset-0 z-0 opacity-20 bg-no-repeat bg-center bg-contain -left-12 top-12"
-        style={{
-          backgroundImage: `url(${lo_xo})`,
-        }}
-      ></div>
-
-      {/* Hình ảnh món ăn */}
-      <div className="relative w-full h-64">
-        <img
-          className="w-full h-full object-cover rounded-t-sm"
-          src={service.image}
-          alt={service.name}
-        />
-        {/* Lớp phủ mờ dần từ */}
-        <div className=" absolute inset-0 bg-gradient-to-t from-white/100 via-white/30 to-transparent "></div>
-
-        {/* Giá hiển thị trên ảnh */}
-        {/* <div className="absolute bottom-2 right-2 bg-[#b18966] text-white font-bold text-lg py-1 px-4 rounded-full shadow-md">
-          {service.price.toLocaleString()} VNĐ
-        </div> */}
-      </div>
-
+    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-[#FAF3E0]  text-gray-800  shadow-xl max-w-md mx-auto ">
       {/* Tên món ăn */}
       <h1
         style={{
@@ -45,8 +22,7 @@ const CardDetail = ({ service }) => {
       </h1>
 
       {/* Thành phần nguyên liệu bg-[#FAF3E0]*/}
-      <div className="w-full pb-4 px-10 bg-gradient-to-t from-[#FAF3E0] to-white via-white/30 rounded-b-sm shadow-md">
-        
+      <div className="w-full py-4 px-10 bg-gradient-to-b from-[#FAF3E0] to-white via-white/30 rounded-b-sm shadow-md">
         <ul className="text-gray-700 space-y-4 px-4 py-2 text-sm md:text-lg">
           {service.details.map((item) => (
             <li
@@ -55,11 +31,21 @@ const CardDetail = ({ service }) => {
             >
               <span className="font-medium text-gray-800">{item.name}</span>
               <span className="text-[#b18966]  text-lg">
-                {item.quantity} x {item.price.toLocaleString()} 
+                {item.price.toLocaleString()}
               </span>
             </li>
           ))}
         </ul>
+      </div>
+      {/* Hình ảnh món ăn */}
+      <div className="relative w-full h-64">
+        <img
+          className="w-full h-full object-cover rounded-t-sm"
+          src={service.image}
+          alt={service.name}
+        />
+        {/* Lớp phủ mờ dần từ */}
+        <div className=" absolute inset-0 bg-gradient-to-b from-white/100 via-white/30 to-transparent "></div>
       </div>
     </div>
   );
