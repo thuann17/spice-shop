@@ -66,15 +66,13 @@ const Header = ({ onSelectCategory }) => {
         <div className="container mx-auto flex justify-between items-center flex-wrap">
           {/* Logo và danh mục (categories) luôn hiển thị */}
           <div className="flex items-center space-x-4 flex-wrap">
-            <h1 className="text-3xl font-bold text-textMain">Logo</h1>
-            <nav className="flex space-x-4 text-textMain font-medium">
+            <h1 className="text-3xl font-bold text-textMain ms-4">Logo</h1>
+            <nav className=" ms-24 flex flex-wrap justify-center gap-3 mt-2 w-full sm:w-auto">
               {categories.map((category, index) => (
                 <a
                   key={index}
-                  href={category.link} // Gắn link vào đây
-                  className="relative px-6 py-3 rounded-md transition-all duration-300
-        bg-gradient-to-r from-[#9C6B4A] to-[#D7A98C] text-white shadow-md
-        hover:shadow-lg hover:scale-105 hover:from-[#D7A98C] hover:to-[#9C6B4A] hover:text-[#FFF5E1]"
+                  href={category.link}
+                  className="px-3 py-1 text-sm sm:text-base bg-[#9C6B4A] text-white rounded-md shadow-md hover:bg-[#D7A98C] transition"
                 >
                   {category.name}
                 </a>
