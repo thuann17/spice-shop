@@ -9,8 +9,6 @@ import img3 from "../../assets/images/dauhao.jpg";
 import img4 from "../../assets/images/icon.png";
 import img5 from "../../assets/images/hamxuong.jpg";
 import img6 from "../../assets/images/thitbo.jpg";
-import img7 from "../../assets/images/ca-hoi-na-uy(1).jpg";
-
 const productData = {
   "Sốt và nước chấm": [
     { id: 1, name: "Bột ngọt", price: "50.000 VND", img: img1 },
@@ -31,12 +29,13 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background mt-3">
-      {/* Thêm Header và truyền onSelectCategory */}
       <Header onSelectCategory={setSelectedCategory} />
       <Banner />
-      <div className="grid grid-cols-12 gap-4 mx-4 mt-4 mb-4">
-        <Aside onSelectCategory={setSelectedCategory} />
-        <div className="col-span-9">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mx-4 mt-4 mb-4">
+        <div className="col-span-1 md:col-span-3">
+          <Aside />
+        </div>
+        <div className="col-span-1 md:col-span-9">
           <CardGrid products={productData[selectedCategory] || []} />
         </div>
       </div>

@@ -24,20 +24,22 @@ const Header = ({ onSelectCategory }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
+  const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleSystemClick = () => {
+  const handleSystemClick = (e) => {
+    e.preventDefault();
     setIsModalOpen(true);
   };
 
   const handlePasswordSubmit = () => {
-    const correctPassword = "123456"; // Đổi mật khẩu tại đây
+    const correctPassword = "123456";
     if (password === correctPassword) {
       setIsModalOpen(false);
       setPassword("");
@@ -50,7 +52,7 @@ const Header = ({ onSelectCategory }) => {
 
   return (
     <>
-      {/* Thanh thông tin địa chỉ */}
+      {/* Thanh địa chỉ nhỏ phía trên */}
       <div className="bg-primary text-white text-center py-1">
         <p className="text-sm">Địa chỉ: CanTho City.</p>
       </div>
@@ -87,41 +89,46 @@ const Header = ({ onSelectCategory }) => {
                 key={index}
                 href={item.link}
                 className="hover:text-[#8C5A3D] cursor-pointer"
-                onClick={
-                  item.requiresAuth
-                    ? (e) => {
-                        e.preventDefault();
-                        handleSystemClick();
-                      }
-                    : null
-                }
+                onClick={item.requiresAuth ? handleSystemClick : undefined}
               >
                 {item.name}
               </a>
             ))}
           </nav>
 
-          {/* Nút mở menu mobile */}
-          <button
-            className="lg:hidden text-black"
-            aria-label="Toggle menu"
-            onClick={toggleMenu}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
+          {/* Nút mở menu trên mobile */}
+          <button className="lg:hidden text-white" onClick={handleToggleMenu}>
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
               <path
+                stroke="currentColor"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
           </button>
+
+          {/* Menu trên mobile */}
+          {isMenuOpen && (
+            <nav className="absolute top-full left-0 w-full bg-secondary lg:hidden transition-transform">
+              <ul className="flex flex-col space-y-4 p-4">
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <a
+                      href={item.link}
+                      className="block text-textMain hover:text-[#8C5A3D]"
+                      onClick={
+                        item.requiresAuth ? handleSystemClick : undefined
+                      }
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
 
         {/* Menu mobile */}
@@ -149,7 +156,7 @@ const Header = ({ onSelectCategory }) => {
         )}
       </header>
 
-      {/* Modal nhập password */}
+      {/* Modal nhập mật khẩu */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
