@@ -27,7 +27,7 @@ const CardDetail2 = ({ service }) => {
           {service.details.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center border-b border-border pb-2"
+              className="flex justify-between items-center border-dashed border-b border-border pb-2"
             >
               <span className="font-medium text-textMain">{item.name}</span>
               <span className="text-primary  text-lg">
