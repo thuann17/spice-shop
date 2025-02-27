@@ -1,4 +1,3 @@
-
 const CardDetail = ({ service }) => {
   if (!service) {
     return (
@@ -7,7 +6,7 @@ const CardDetail = ({ service }) => {
   }
 
   return (
-    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-[#FAF3E0]  text-gray-800  shadow-xl max-w-md mx-auto ">
+    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-[#8B5E3B]  text-gray-800  shadow-xl max-w-md mx-auto ">
       {/* Tên món ăn */}
       <h1
         style={{
@@ -16,13 +15,13 @@ const CardDetail = ({ service }) => {
               0px 0px 6px rgba(139, 94, 59, 0.4)`,
           letterSpacing: "2px",
         }}
-        className="font-custom mt-4 max-w-[60%] text-xl md:text-3xl font-bold text-[#8B5E3B] uppercase text-center mx-auto leading-tight break-words"
+        className="font-custom mt-4 max-w-[60%] text-xl md:text-3xl font-bold text-white uppercase text-center mx-auto leading-tight break-words"
       >
         {service.name}
       </h1>
 
       {/* Thành phần nguyên liệu bg-[#FAF3E0]*/}
-      <div className="w-full py-4 px-10 bg-gradient-to-b from-[#FAF3E0] to-white via-white/30 rounded-b-sm shadow-md">
+      <div className="w-full py-4 px-10 bg-gradient-to-b from-[#8B5E3B] to-white via-white/30 rounded-b-sm shadow-md">
         <ul className="text-gray-700 space-y-4 px-4 py-2 text-sm md:text-lg">
           {service.details.map((item) => (
             <li
@@ -30,7 +29,7 @@ const CardDetail = ({ service }) => {
               className="flex justify-between items-center border-b border-gray-300 pb-2"
             >
               <span className="font-medium text-gray-800">{item.name}</span>
-              <span className="text-[#b18966]  text-lg">
+              <span className="text-white text-lg">
                 {item.price.toLocaleString()}
               </span>
             </li>

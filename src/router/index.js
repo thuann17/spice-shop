@@ -6,6 +6,7 @@ import CustomerLayout from "../layouts/customer/CustomerLayout";
 import HomePage from "../pages/Home/HomePage";
 import CardList from "../pages/DichVuLuuDong/CardList";
 import CardList2 from "../pages/DichVuLuuDong/CardList2";
+import Service from "../pages/DichVuLuuDong/DichVu";
 
 const AppRouter = () => {
   return (
@@ -13,12 +14,11 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<CustomerLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="services" element={<Service />} />
         </Route>
         <Route path="menu-list1" element={<Menus1 />} />
         <Route path="menu-list2" element={<Menus2 />} />
         <Route path="menu-list3" element={<Menus3 />} />
-        <Route path="services" element={<CardList />} />
-        <Route path="services2" element={<CardList2 />} />
       </Routes>
     </Router>
   );

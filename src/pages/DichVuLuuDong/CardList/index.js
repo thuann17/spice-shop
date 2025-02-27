@@ -5,7 +5,7 @@ import PopupService from "./Popup/PopupService";
 export const Items = [
   {
     id: 1,
-    name: "Combo Hải Sản",
+    name: "Bàn tiệc Hải Sản",
     price: 1690000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -19,7 +19,7 @@ export const Items = [
   },
   {
     id: 2,
-    name: "Hải Sản Nướng",
+    name: "Bàn tiệc Hải Sản Đặc Biệt",
     price: 1200000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -33,7 +33,7 @@ export const Items = [
   },
   {
     id: 3,
-    name: " Hải Sản Cay",
+    name: "Bàn Tiệc Nướng",
     price: 890000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -46,7 +46,6 @@ export const Items = [
     ],
   },
 ];
-
 
 const CardList = () => {
   const [selectedService, setSelectedService] = useState(null);
