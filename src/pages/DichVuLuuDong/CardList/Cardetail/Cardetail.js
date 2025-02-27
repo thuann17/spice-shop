@@ -1,0 +1,68 @@
+import lo_xo from "./../../../../assets/images/lo-xo.png";
+const CardDetail = ({ service }) => {
+  if (!service) {
+    return (
+      <h2 className="text-center text-red-500 text-lg">Món ăn không tồn tại</h2>
+    );
+  }
+
+  return (
+    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-white  text-gray-800  shadow-xl max-w-md mx-auto ">
+      <div
+        className="absolute w-[450px] h-[590px] inset-0 z-0 opacity-20 bg-no-repeat bg-center bg-contain -left-12 top-12"
+        style={{
+          backgroundImage: `url(${lo_xo})`,
+        }}
+      ></div>
+
+      {/* Hình ảnh món ăn */}
+      <div className="relative w-full h-64">
+        <img
+          className="w-full h-full object-cover rounded-t-sm"
+          src={service.image}
+          alt={service.name}
+        />
+        {/* Lớp phủ mờ dần từ */}
+        <div className=" absolute inset-0 bg-gradient-to-t from-white/100 via-white/30 to-transparent "></div>
+
+        {/* Giá hiển thị trên ảnh */}
+        {/* <div className="absolute bottom-2 right-2 bg-[#b18966] text-white font-bold text-lg py-1 px-4 rounded-full shadow-md">
+          {service.price.toLocaleString()} VNĐ
+        </div> */}
+      </div>
+
+      {/* Tên món ăn */}
+      <h1
+        style={{
+          textShadow: `
+              1px 1px 4px rgba(0, 0, 0, 0.3),  
+              0px 0px 6px rgba(139, 94, 59, 0.4)`,
+          letterSpacing: "2px",
+        }}
+        className="font-custom mt-4 max-w-[60%] text-xl md:text-3xl font-bold text-[#8B5E3B] uppercase text-center mx-auto leading-tight break-words"
+      >
+        {service.name}
+      </h1>
+
+      {/* Thành phần nguyên liệu bg-[#FAF3E0]*/}
+      <div className="w-full pb-4 px-10 bg-gradient-to-t from-[#FAF3E0] to-white via-white/30 rounded-b-sm shadow-md">
+        
+        <ul className="text-gray-700 space-y-4 px-4 py-2 text-sm md:text-lg">
+          {service.details.map((item) => (
+            <li
+              key={item.id}
+              className="flex justify-between items-center border-b border-gray-300 pb-2"
+            >
+              <span className="font-medium text-gray-800">{item.name}</span>
+              <span className="text-[#b18966]  text-lg">
+                {item.quantity} x {item.price.toLocaleString()} 
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default CardDetail;
