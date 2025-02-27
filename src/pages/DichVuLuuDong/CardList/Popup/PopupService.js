@@ -1,7 +1,7 @@
 import React from "react";
 import CardDetail from "../Cardetail/Cardetail";
 
-const PopupService = ({ service, closePopup }) => {
+const PopupService2 = ({ service, closePopup }) => {
   return (
     <div
       className=" fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-40 backdrop-blur-sm"
@@ -25,4 +25,4 @@ const PopupService = ({ service, closePopup }) => {
   );
 };
 
-export default PopupService;
+export default PopupService2;
