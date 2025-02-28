@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardDetail2 = ({ service }) => {
+const CardDetail = ({ service }) => {
   return (
     <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-background text-textMain shadow-xl max-w-md mx-auto">
       {/**/}
@@ -60,4 +60,4 @@ const CardDetail2 = ({ service }) => {
   );
 };
 
-export default CardDetail2;
+export default CardDetail;
