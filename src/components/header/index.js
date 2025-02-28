@@ -35,33 +35,48 @@ const Header = ({ onSelectCategory }) => {
   return (
     <d>
       {/* Thanh địa chỉ nhỏ trên cùng */}
-      <div className="  bg-primary text-white text-center py-1">
+      {/* <div className="  bg-primary text-white text-center py-1">
         <p className="text-sm">Địa chỉ: CanTho City.</p>
-      </div>
+      </div> */}
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
+        className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
           isScrolled ? "shadow-md" : ""
         }`}
       >
-        <div className="container mx-auto flex justify-between items-center flex-wrap">
-          {/* Logo và danh mục chính */}
-          <div className="flex items-center md:space-x-4">
-            <h1 className="text-sm md:text-3xl font-bold text-textMain">
-              Logo
-            </h1>
-            <nav className="hidden sm:flex flex-wrap justify-center gap-3">
+        <div className="flex justify-between    items-center ">
+          <h1 className="text-sm md:text-3xl font-bold text-textMain md:mx-2">
+            Logo
+          </h1>
+          {/* danh mục chính */}
+          <div className="flex items-center  md:justify-between lg:-ml-32 xl:ml-64 md:space-x-4">
+            <nav className=" flex flex-1   flex-nowrap  justify-center md:gap-3 ">
               {categories.map((category, index) => (
                 <a
                   key={index}
                   href={category.link}
-                  className="px-3 py-1 text-sm sm:text-base bg-[#9C6B4A] text-white rounded-md shadow-md hover:bg-[#D7A98C] transition"
+                  className="px-1 mx-0.5 md:px-11 lg:px-3 py-1 text-[10px] sm:text-base bg-[#9C6B4A] text-white rounded-md shadow-md hover:bg-[#D7A98C] transition"
                 >
                   {category.name}
                 </a>
               ))}
             </nav>
           </div>
+          {/* Nút mở menu trên mobile */}
+          <button
+            className="lg:hidden w-6 text-white md:ml-2"
+            onClick={handleToggleMenu}
+          >
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <path
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
 
           {/* Menu Desktop */}
           <nav className="hidden lg:flex space-x-6 text-textMain font-medium">
@@ -76,19 +91,6 @@ const Header = ({ onSelectCategory }) => {
               </a>
             ))}
           </nav>
-
-          {/* Nút mở menu trên mobile */}
-          <button className="lg:hidden text-white" onClick={handleToggleMenu}>
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-              <path
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
         </div>
 
         {/* Menu Mobile */}
