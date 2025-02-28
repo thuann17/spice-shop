@@ -48,11 +48,11 @@ export const Items = [
 ];
 
 
-const CardList = () => {
+const CardList2 = () => {
   const [selectedService, setSelectedService] = useState(null);
   return (
-    <div className="min-h-screen p-6 sm:p-10">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-[#8B5E3B] mb-8">
+    <div className="min-h-screen p-6 sm:p-10 bg-background">
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-text-textMain  mb-8">
         Dịch vụ lưu động
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:mx-56">
@@ -74,4 +74,4 @@ const CardList = () => {
   );
 };
 
-export default CardList;
+export default CardList2;
