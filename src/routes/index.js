@@ -4,8 +4,6 @@ import Menus2 from "../pages/Menu/MenuList copy";
 import Menus3 from "../pages/Menu/MenuList copy 2";
 import CustomerLayout from "../layouts/customer/CustomerLayout";
 import HomePage from "../pages/Home/HomePage";
-import CardList from "../pages/DichVuLuuDong/CardList";
-import CardList2 from "../pages/DichVuLuuDong/CardList2";
 import Service from "../pages/DichVuLuuDong/DichVu";
 
 const AppRouter = () => {
