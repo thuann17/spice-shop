@@ -5,7 +5,7 @@ import PopupService from "./Popup/PopupService";
 export const Items = [
   {
     id: 1,
-    name: "Bàn tiệc Hải Sản",
+    name: "Combo Hải Sản",
     price: 1690000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -19,7 +19,7 @@ export const Items = [
   },
   {
     id: 2,
-    name: "Bàn tiệc Hải Sản Đặc Biệt",
+    name: "Hải Sản Nướng",
     price: 1200000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -33,7 +33,7 @@ export const Items = [
   },
   {
     id: 3,
-    name: "Bàn Tiệc Nướng",
+    name: " Hải Sản Cay",
     price: 890000,
     image:
       "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
@@ -47,11 +47,12 @@ export const Items = [
   },
 ];
 
-const CardList = () => {
+
+const CardList2 = () => {
   const [selectedService, setSelectedService] = useState(null);
   return (
-    <div className="min-h-screen p-6 sm:p-10">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-[#8B5E3B] mb-8">
+    <div className="min-h-screen p-6 sm:p-10 bg-background">
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-text-textMain  mb-8">
         Dịch vụ lưu động
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:mx-56">
@@ -73,4 +74,4 @@ const CardList = () => {
   );
 };
 
-export default CardList;
+export default CardList2;

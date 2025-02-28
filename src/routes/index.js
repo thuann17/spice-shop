@@ -19,6 +19,7 @@ const AppRouter = () => {
         <Route path="menu-list1" element={<Menus1 />} />
         <Route path="menu-list2" element={<Menus2 />} />
         <Route path="menu-list3" element={<Menus3 />} />
+  
       </Routes>
     </Router>
   );
