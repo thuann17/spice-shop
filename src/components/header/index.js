@@ -21,53 +21,36 @@ const Header = ({ onSelectCategory }) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleToggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const handleSystemClick = (e) => {
     e.preventDefault();
     setIsModalOpen(true);
   };
 
-  const handlePasswordSubmit = () => {
-    const correctPassword = "123456";
-    if (password === correctPassword) {
-      setIsModalOpen(false);
-      setPassword("");
-      setError("");
-      window.location.href = "/admin";
-    } else {
-      setError("Mật khẩu không đúng!");
-    }
-  };
-
   return (
-    <>
-      {/* Thanh địa chỉ nhỏ phía trên */}
-      <div className="bg-primary text-white text-center py-1">
+    <d>
+      {/* Thanh địa chỉ nhỏ trên cùng */}
+      <div className="  bg-primary text-white text-center py-1">
         <p className="text-sm">Địa chỉ: CanTho City.</p>
       </div>
-
       {/* Header */}
       <header
-        className={`fixed left-0 w-full bg-secondary text-white p-4 z-50 transition-all duration-200 ${
-          isScrolled ? "top-0 shadow-md" : "top-6"
+        className={`fixed top-0 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
+          isScrolled ? "shadow-md" : ""
         }`}
       >
         <div className="container mx-auto flex justify-between items-center flex-wrap">
-          {/* Logo và danh mục (categories) luôn hiển thị */}
-          <div className="flex items-center space-x-4 flex-wrap">
-            <h1 className="text-3xl font-bold text-textMain ms-4">Logo</h1>
-            <nav className=" ms-24 flex flex-wrap justify-center gap-3 mt-2 w-full sm:w-auto">
+          {/* Logo và danh mục chính */}
+          <div className="flex items-center md:space-x-4">
+            <h1 className="text-sm md:text-3xl font-bold text-textMain">
+              Logo
+            </h1>
+            <nav className="hidden sm:flex flex-wrap justify-center gap-3">
               {categories.map((category, index) => (
                 <a
                   key={index}
@@ -106,52 +89,44 @@ const Header = ({ onSelectCategory }) => {
               />
             </svg>
           </button>
-
-          {/* Menu trên mobile */}
-          {isMenuOpen && (
-            <nav className="absolute top-full left-0 w-full bg-secondary lg:hidden transition-transform">
-              <ul className="flex flex-col space-y-4 p-4">
-                {menuItems.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href={item.link}
-                      className="block text-textMain hover:text-[#8C5A3D]"
-                      onClick={
-                        item.requiresAuth ? handleSystemClick : undefined
-                      }
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
         </div>
 
-        {/* Menu mobile */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-secondary text-black p-4 flex flex-col space-y-4 lg:hidden transition-all duration-300 ease-in-out">
-            {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.link}
-                className="block px-4 py-2 hover:bg-primary rounded-md"
-                onClick={
-                  item.requiresAuth
-                    ? (e) => {
-                        e.preventDefault();
-                        handleSystemClick();
-                        setIsMenuOpen(false);
-                      }
-                    : () => setIsMenuOpen(false)
-                }
-              >
-                {item.name}
-              </a>
-            ))}
+        {/* Menu Mobile */}
+        <div
+          className={`lg:hidden fixed top-0 left-0 h-full w-3/4 bg-secondary text-white transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="p-4">
+            {/* Nút đóng menu */}
+            <button onClick={handleToggleMenu} className="text-white">
+              ✖ Đóng
+            </button>
+
+            {/* Danh sách menu */}
+            <ul className="mt-4 space-y-4">
+              {menuItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.link}
+                    className="block text-lg hover:text-[#D7A98C] transition"
+                    onClick={
+                      item.requiresAuth
+                        ? (e) => {
+                            e.preventDefault();
+                            handleSystemClick();
+                            setIsMenuOpen(false);
+                          }
+                        : () => setIsMenuOpen(false)
+                    }
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
+        </div>
       </header>
 
       {/* Modal nhập mật khẩu */}
@@ -180,7 +155,16 @@ const Header = ({ onSelectCategory }) => {
               </button>
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded-md"
-                onClick={handlePasswordSubmit}
+                onClick={() => {
+                  if (password === "123456") {
+                    setIsModalOpen(false);
+                    setPassword("");
+                    setError("");
+                    window.location.href = "/admin";
+                  } else {
+                    setError("Mật khẩu không đúng!");
+                  }
+                }}
               >
                 Xác nhận
               </button>
@@ -188,7 +172,7 @@ const Header = ({ onSelectCategory }) => {
           </div>
         </div>
       )}
-    </>
+    </d>
   );
 };
 
