@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const FloatingButtons = () => {
   return (
@@ -30,14 +31,15 @@ const FloatingButtons = () => {
           className="w-8 h-8"
         />
       </a>
+
       {/* SDT */}
       <a
         href="tel:0838644462"
-        className="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+        className="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:scale-110 transition-transform phone-shake"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
-          alt="call"
+          alt="Call"
           className="w-8 h-8"
         />
       </a>

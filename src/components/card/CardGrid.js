@@ -38,8 +38,6 @@ const CardGrid = ({ products }) => {
       {/* Phân trang */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
-          
-
           {[...Array(totalPages)].map((_, index) => (
             <button
               key={index}
@@ -52,9 +50,7 @@ const CardGrid = ({ products }) => {
             >
               {index + 1}
             </button>
-          ))}
-
-          
+          ))}{" "}
         </div>
       )}
     </div>
