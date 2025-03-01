@@ -95,14 +95,14 @@ const Header = ({ onSelectCategory }) => {
 
         {/* Menu Mobile */}
         <div
-          className={`lg:hidden fixed top-0 left-0 h-full w-3/4 bg-secondary text-white transform transition-transform duration-300 ease-in-out ${
+          className={`lg:hidden fixed top-0 left-0 h-full w-3/4 bg-secondary text-textMain transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="p-4">
+          <div className="p-4 flex ">
             {/* Nút đóng menu */}
             <button onClick={handleToggleMenu} className="text-white">
-              ✖ Đóng
+              ✖
             </button>
 
             {/* Danh sách menu */}
