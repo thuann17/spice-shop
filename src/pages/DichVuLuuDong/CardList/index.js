@@ -1,11 +1,8 @@
 import Card from "./Card/Card";
 import { useState } from "react";
 import PopupService from "./Popup/PopupService";
-import
-{ Input }
-from
-"antd"
-;
+import { Select } from "antd";
+import "./index.css"
 export const Items = [
   {
     id: 1,
@@ -51,9 +48,8 @@ export const Items = [
   },
 ];
 
-
 const CardList2 = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [selectedService, setSelectedService] = useState(null);
 
@@ -73,29 +69,37 @@ const CardList2 = () => {
       <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-text-textMain  mb-8">
         Dịch vụ lưu động
       </h1>
-      {/* Thanh tìm kiếm và bộ lọc */}
-      <div className="flex flex-col sm:flex-row sm:justify-center  gap-4 mb-6 w-full  rounded-xl ">
-        {/* Ô tìm kiếm */}
-        <input
-          type="text"
-          placeholder="🔍 Tìm kiếm dịch vụ..."
-          className="px-4 py-3 border border-gray-300 rounded-md w-full  md:w-2/4 lg:w-1/4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        {/* <Input placeholder="Tìm kiếm dịc vụ "/> */}
-        
-
-        {/* Bộ lọc theo giá */}
-        <select
-          className="px-4 py-3 border border-gray-300 rounded-md w-full  md:w-2/4 lg:w-1/4 bg-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+      {/* bộ lọc */}
+      <div className=" flex justify-center md:justify-end  gap-4 mb-6 w-full  rounded-xl ">
+        <Select
+          // icon={}
+          className="custom-select"
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-        >
-          <option value=""> Lọc theo giá</option>
-          <option value="asc">Giá tăng dần</option>
-          <option value="desc">Giá giảm dần</option>
-        </select>
+          showSearch
+          style={{ width: 200 }}
+          placeholder="Sắp xếp theo giá"
+          optionFilterProp="label"
+          onChange={(value) => setSortOrder(value)}
+          filterSort={(optionA, optionB) =>
+            (optionA?.label ?? "")
+              .toLowerCase()
+              .localeCompare((optionB?.label ?? "").toLowerCase())
+          }
+          options={[
+            {
+              value: "",
+              label: "Sắp xếp theo giá",
+            },
+            {
+              value: "asc",
+              label: "Giá tăng dần",
+            },
+            {
+              value: "desc",
+              label: "Giá giảm dần",
+            },
+          ]}
+        />
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:mx-56">

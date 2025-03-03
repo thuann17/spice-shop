@@ -1,0 +1,20 @@
+.custom-select .ant-select-selector {
+  border-radius: 6px !important;
+  border: 1px solid #C8AD7F !important;
+  background-color: #fff4e6 !important;
+  height: 40px !important;
+  
+}
+
+.custom-select .ant-select-selection-item {
+  font-style: italic;
+  color: #4A3F35 !important;
+}
+
+.custom-select .ant-select-arrow {
+   display:none !important;
+}
+
+.custom-select{
+    width: 300px !important;
+}

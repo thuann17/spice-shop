@@ -34,10 +34,6 @@ const Header = ({ onSelectCategory }) => {
 
   return (
     <d>
-      {/* Thanh địa chỉ nhỏ trên cùng */}
-      {/* <div className="  bg-primary text-white text-center py-1">
-        <p className="text-sm">Địa chỉ: CanTho City.</p>
-      </div> */}
       {/* Header */}
       <header
         className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
@@ -94,40 +90,50 @@ const Header = ({ onSelectCategory }) => {
         </div>
 
         {/* Menu Mobile */}
+
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+            onClick={handleToggleMenu}
+          />
+        )}
         <div
-          className={`lg:hidden fixed top-0 left-0 h-full w-3/4 bg-secondary text-textMain transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`lg:hidden fixed top-0 left-0 h-full w-3/4 max-w-xs bg-secondary text-textMain transform transition-all duration-300 ease-in-out shadow-lg 
+  ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
         >
-          <div className="p-4 flex ">
-            {/* Nút đóng menu */}
-            <button onClick={handleToggleMenu} className="text-white">
+          {/* Header Menu */}
+          <div className="p-4 flex items-center justify-between border-b border-gray-300">
+            <h2 className="text-xl font-semibold">Menu</h2>
+            <button
+              onClick={handleToggleMenu}
+              className="text-white text-2xl p-2 hover:text-[#D7A98C] transition"
+            >
               ✖
             </button>
-
-            {/* Danh sách menu */}
-            <ul className="mt-4 space-y-4">
-              {menuItems.map((item, index) => (
-                <li key={index}>
-                  <a
-                    href={item.link}
-                    className="block text-lg hover:text-[#D7A98C] transition"
-                    onClick={
-                      item.requiresAuth
-                        ? (e) => {
-                            e.preventDefault();
-                            handleSystemClick();
-                            setIsMenuOpen(false);
-                          }
-                        : () => setIsMenuOpen(false)
-                    }
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
+
+          {/* Danh sách menu */}
+          <ul className="mt-4 space-y-4 px-6">
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.link}
+                  className="block text-lg font-medium p-2 rounded-lg hover:bg-[#D7A98C] hover:text-white transition-all"
+                  onClick={
+                    item.requiresAuth
+                      ? (e) => {
+                          e.preventDefault();
+                          handleSystemClick();
+                          setIsMenuOpen(false);
+                        }
+                      : () => setIsMenuOpen(false)
+                  }
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
 
