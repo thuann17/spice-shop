@@ -2,7 +2,7 @@ import React from "react";
 
 const CardDetail = ({ service }) => {
   return (
-    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-background text-textMain shadow-xl max-w-md mx-auto">
+    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-secondary text-textMain shadow-xl max-w-md mx-auto">
       {/**/}
       <div className="relative text-center mt-4">
         <h1
