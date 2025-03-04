@@ -2,7 +2,7 @@ import React from "react";
 
 const CardDetail = ({ service }) => {
   return (
-    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-secondary text-textMain shadow-xl max-w-md mx-auto">
+    <div className="flex min-h-[500px] max-h-[620px] flex-col items-center bg-[#C29A6C] text-textMain shadow-xl max-w-md mx-auto">
       {/**/}
       <div className="relative text-center mt-4">
         <h1
@@ -10,7 +10,7 @@ const CardDetail = ({ service }) => {
             textShadow: `1px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 6px rgba(139, 94, 59, 0.4)`,
             letterSpacing: "2px",
           }}
-          className="font-custom text-xl md:text-3xl font-bold text-primary uppercase mx-auto leading-tight break-words"
+          className="font-custom text-xl md:text-3xl font-bold text-textMain uppercase mx-auto leading-tight break-words"
         >
           {service.name}
         </h1>
@@ -30,8 +30,8 @@ const CardDetail = ({ service }) => {
       </div>
 
       {/* Thành phần nguyên liệu */}
-      <div className="w-full py-2 px-10 bg-gradient-to-b from-background to-white via-white/30 rounded-b-sm shadow-md">
-        <ul className="text-textSub space-y-4 px-4 py-2 text-sm md:text-lg">
+      <div className="w-full  px-10 bg-gradient-to-b from-[#C29A6C] to-white via-white/30 rounded-b-sm shadow-md">
+        <ul className="text-textSub space-y-1 px-4 py-2 text-sm md:text-lg">
           {service.details.map((item) => (
             <li
               key={item.id}
