@@ -19,9 +19,9 @@ const CardDetail = ({ service }) => {
           <span className="w-8 h-2 bg-gradient-to-r from-[#8B5E3C] to-[#C29A6C] rounded-full shadow-md transition-transform duration-300 hover:scale-105"></span>
           <span className="w-20 h-1 bg-gradient-to-r from-[#8B5E3C] to-[#C29A6C] rounded-full shadow-md"></span>
           <img
-            src="https://cdn.dribbble.com/userupload/13122763/file/original-79c46238fc3738b8c60813bb3af243fb.jpg?resize=400x300"
+            src="https://content.presentermedia.com/files/animsp/00029000/29305/a_chefs_kiss_lg_wm.gif"
             alt="Chef Like"
-            className="w-10 h-10 object-cover rounded-full shadow-md transition-transform duration-300 hover:scale-110"
+            className="w-14 h-16 object-cover rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
           <span className="w-20 h-1 bg-gradient-to-l from-[#8B5E3C] to-[#C29A6C] rounded-full shadow-md"></span>
 
