@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import LoginModal from "../modal/LoginModal";
+import ForgotPasswordModal from "../modal/ForgotPasswordModal";
 
 const categories = [
   { name: "Sốt và nước chấm", link: "/sauces" },
@@ -17,8 +19,6 @@ const Header = ({ onSelectCategory }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -27,30 +27,28 @@ const Header = ({ onSelectCategory }) => {
   }, []);
 
   const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Đảm bảo e luôn tồn tại khi gọi
   const handleSystemClick = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setIsModalOpen(true);
   };
 
   return (
-    <d>
-      {/* Thanh địa chỉ nhỏ trên cùng */}
-      {/* <div className="  bg-primary text-white text-center py-1">
-        <p className="text-sm">Địa chỉ: CanTho City.</p>
-      </div> */}
-      {/* Header */}
+    <div>
       <header
-        className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
+        className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4 transition-all duration-200 ${
           isScrolled ? "shadow-md" : ""
         }`}
       >
-        <div className="flex justify-between    items-center ">
+        <div className="flex justify-between items-center">
           <h1 className="text-sm md:text-3xl font-bold text-textMain md:mx-2">
             Logo
           </h1>
-          {/* danh mục chính */}
-          <div className="flex items-center  md:justify-between lg:-ml-32 xl:ml-64 md:space-x-4">
-            <nav className=" flex flex-1   flex-nowrap  justify-center md:gap-3 ">
+
+          {/* Danh mục chính */}
+          <div className="flex items-center md:justify-between lg:-ml-32 xl:ml-64 md:space-x-4">
+            <nav className="flex flex-1 flex-nowrap justify-center md:gap-3">
               {categories.map((category, index) => (
                 <a
                   key={index}
@@ -62,6 +60,7 @@ const Header = ({ onSelectCategory }) => {
               ))}
             </nav>
           </div>
+
           {/* Nút mở menu trên mobile */}
           <button
             className="lg:hidden w-6 text-white md:ml-2"
@@ -85,7 +84,9 @@ const Header = ({ onSelectCategory }) => {
                 key={index}
                 href={item.link}
                 className="hover:text-[#8C5A3D] cursor-pointer"
-                onClick={item.requiresAuth ? handleSystemClick : undefined}
+                onClick={
+                  item.requiresAuth ? (e) => handleSystemClick(e) : undefined
+                }
               >
                 {item.name}
               </a>
@@ -116,7 +117,7 @@ const Header = ({ onSelectCategory }) => {
                       item.requiresAuth
                         ? (e) => {
                             e.preventDefault();
-                            handleSystemClick();
+                            handleSystemClick(e);
                             setIsMenuOpen(false);
                           }
                         : () => setIsMenuOpen(false)
@@ -131,50 +132,10 @@ const Header = ({ onSelectCategory }) => {
         </div>
       </header>
 
-      {/* Modal nhập mật khẩu */}
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
-            <h2 className="text-xl font-bold mb-4">Nhập mật khẩu</h2>
-            <input
-              type="password"
-              className="w-full border p-2 rounded-md"
-              placeholder="Nhập mật khẩu..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-            <div className="mt-4 flex justify-between">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded-md"
-                onClick={() => {
-                  setIsModalOpen(false);
-                  setPassword("");
-                  setError("");
-                }}
-              >
-                Hủy
-              </button>
-              <button
-                className="bg-green-500 text-white px-4 py-2 rounded-md"
-                onClick={() => {
-                  if (password === "123456") {
-                    setIsModalOpen(false);
-                    setPassword("");
-                    setError("");
-                    window.location.href = "/admin";
-                  } else {
-                    setError("Mật khẩu không đúng!");
-                  }
-                }}
-              >
-                Xác nhận
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </d>
+      {/* Modal đăng nhập */}
+      <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ForgotPasswordModal />
+    </div>
   );
 };
 
