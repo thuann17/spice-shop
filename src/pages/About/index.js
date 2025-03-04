@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-background mt-20 mb-4 max-w-5xl mx-auto p-8 rounded-lg shadow-xl">
+    <div className="bg-background mt-16 mb-4 max-w-5xl mx-auto p-8 rounded-lg shadow-xl">
       {/*  */}
       <h1 className="text-4xl font-extrabold text-center text-gray-800">
         GIỚI THIỆU
