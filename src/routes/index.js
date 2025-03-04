@@ -6,6 +6,8 @@ import CustomerLayout from "../layouts/customer/CustomerLayout";
 import HomePage from "../pages/Home/HomePage";
 import Service from "../pages/DichVuLuuDong/DichVu";
 import ManagerLayout from "../layouts/manager/ManagerLayout";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
 const AppRouter = () => {
   return (
     <Router>
@@ -13,6 +15,8 @@ const AppRouter = () => {
         <Route path="/" element={<CustomerLayout />}>
           <Route index element={<HomePage />} />
           <Route path="services" element={<Service />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="about" element={<About />} />
         </Route>
         <Route path="/manager" element={<ManagerLayout />}></Route>
         <Route path="menu-list1" element={<Menus1 />} />
