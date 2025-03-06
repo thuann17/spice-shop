@@ -8,6 +8,7 @@ import Service from "../pages/DichVuLuuDong/DichVu";
 import ManagerLayout from "../layouts/manager/ManagerLayout";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
+import ChiTietSanPham from "../pages/ChiTietSanPham";
 const AppRouter = () => {
   return (
     <Router>
@@ -17,6 +18,7 @@ const AppRouter = () => {
           <Route path="services" element={<Service />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
+          <Route path="detail/:id" element={<ChiTietSanPham />} />
         </Route>
         <Route path="/manager" element={<ManagerLayout />}></Route>
         <Route path="menu-list1" element={<Menus1 />} />
