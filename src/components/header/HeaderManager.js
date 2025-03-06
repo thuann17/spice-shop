@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Notification from "../Notification";
 import ProfileMenu from "../ProfileMenu";
 
@@ -6,8 +6,7 @@ const HeaderManager = ({ toggleSidebar }) => {
   const [isDarkMode, setDarkMode] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md px-6 py-3 flex justify-between items-center fixed w-full z-50">
-      {/* Left: Mobile Menu Button */}
+    <header className="bg-white dark:bg-gray-900 shadow-md px-6 py-3 flex justify-between items-center fixed w-auto z-50">
       <div className="flex items-center gap-4">
         <button
           className="text-xl dark:text-white sm:hidden"
@@ -19,7 +18,6 @@ const HeaderManager = ({ toggleSidebar }) => {
           MyLogo
         </span>
       </div>
-      {/* Right: Icons & Profile */}
       <div className="flex items-center gap-6">
         <button
           className="text-xl dark:text-white"
@@ -33,5 +31,4 @@ const HeaderManager = ({ toggleSidebar }) => {
     </header>
   );
 };
-
 export default HeaderManager;
