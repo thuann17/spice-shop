@@ -6,23 +6,15 @@ const HeaderManager = ({ toggleSidebar }) => {
   const [isDarkMode, setDarkMode] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md px-6 py-3 flex justify-between items-center fixed w-auto z-50">
+    <header className="bg-white dark:bg-gray-900 shadow-md px-6 py-3 flex justify-between items-center w-full">
       <div className="flex items-center gap-4">
-        <button
-          className="text-xl dark:text-white sm:hidden"
-          onClick={toggleSidebar}
-        >
+        {/* Nút mở menu chỉ hiển thị trên mobile */}
+        <button className="text-xl dark:text-white sm:hidden" onClick={toggleSidebar}>
           ☰
         </button>
-        <span className="text-xl font-semibold text-gray-800 dark:text-white">
-          MyLogo
-        </span>
       </div>
       <div className="flex items-center gap-6">
-        <button
-          className="text-xl dark:text-white"
-          onClick={() => setDarkMode(!isDarkMode)}
-        >
+        <button className="text-xl dark:text-white" onClick={() => setDarkMode(!isDarkMode)}>
           {isDarkMode ? "☀️" : "🌙"}
         </button>
         <Notification />
@@ -31,4 +23,5 @@ const HeaderManager = ({ toggleSidebar }) => {
     </header>
   );
 };
+
 export default HeaderManager;
