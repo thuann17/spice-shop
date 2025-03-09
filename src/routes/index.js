@@ -20,6 +20,7 @@ const AppRouter = () => {
           <Route path="services" element={<Service />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
+          <Route path="detail/:id" element={<ChiTietSanPham />} />
         </Route>
         <Route path="/manager" element={<ManagerLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
