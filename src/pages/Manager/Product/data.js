@@ -1,11 +1,33 @@
-// products.js
-const products = [
-    { name: "Laptop", price: "$1200", status: "Available", date: "06/03/2025" },
-    { name: "Smartphone", price: "$800", status: "Out of Stock", date: "06/03/2025" },
-    { name: "Tablet", price: "$500", status: "Available", date: "06/03/2025" },
-    { name: "Smartwatch", price: "$300", status: "Limited", date: "06/03/2025" },
-    { name: "Headphones", price: "$150", status: "Available", date: "06/03/2025" },
-  ];
-  
-  export default products;
-  
+const data = [
+  {
+    id: 1,
+    name: "Tam thais tu",
+    price: 2000000,
+    image:
+      "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
+
+    status: true,
+    position: 2,
+  },
+  {
+    id: 2,
+    name: "Tam thais tu",
+    price: 1200000,
+    image:
+      "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
+
+    status: true,
+    position: 1,
+  },
+  {
+    id: 3,
+    name: "Tam thais tu",
+    price: 890000,
+    image:
+      "https://giadinh.mediacdn.vn/296230595582509056/2023/8/7/edit-z4557883676821a4f90e787de265d8c4c25437e1a72451-1691375977197776037183.png",
+
+    status: false,
+    position: 2,
+  },
+];
+export default data;

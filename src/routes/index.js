@@ -10,6 +10,7 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Dashboard from "../pages/Manager/Dashboard/index";
 import ProductManager from "../pages/Manager/Product/index";
+import ProductManager2 from "../pages/Manager/Product/test";
 const AppRouter = () => {
   return (
     <Router>
@@ -21,9 +22,9 @@ const AppRouter = () => {
           <Route path="about" element={<About />} />
         </Route>
         <Route path="/manager" element={<ManagerLayout />}>
-          {" "}
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="product" element={<ProductManager />} />
+          <Route path="product2" element={<ProductManager2 />} />
           <Route path="menu" element={<Dashboard />} />
         </Route>
         <Route path="menu-list1" element={<Menus1 />} />
