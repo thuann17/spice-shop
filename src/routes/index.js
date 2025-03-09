@@ -11,7 +11,7 @@ import About from "../pages/About";
 import Dashboard from "../pages/Manager/Dashboard/index";
 import ProductManager from "../pages/Manager/Product/index";
 import ProductManager2 from "../pages/Manager/Product/test";
-import ChiTietSanPham from "../pages/ChiTietSanPham";
+import ChiTietSanPham from "../pages/Customer/ChiTietSanPham";
 const AppRouter = () => {
   return (
     <Router>
