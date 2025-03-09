@@ -1,16 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Menus1 from "../pages/Menu/MenuList";
-import Menus2 from "../pages/Menu/MenuList copy";
-import Menus3 from "../pages/Menu/MenuList copy 2";
+import Menus1 from "../pages/Customer/Menu/MenuList";
+import Menus2 from "../pages/Customer/Menu/MenuList copy";
+import Menus3 from "../pages/Customer/Menu/MenuList copy 2";
 import CustomerLayout from "../layouts/customer/CustomerLayout";
-import HomePage from "../pages/Home/HomePage";
-import Service from "../pages/DichVuLuuDong/DichVu";
+import HomePage from "../pages/Customer/Home/HomePage";
+import Service from "../pages/Customer/DichVuLuuDong/DichVu";
 import ManagerLayout from "../layouts/manager/ManagerLayout";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Dashboard from "../pages/Manager/Dashboard/index";
 import ProductManager from "../pages/Manager/Product/index";
 import ProductManager2 from "../pages/Manager/Product/test";
+import ChiTietSanPham from "../pages/ChiTietSanPham";
 const AppRouter = () => {
   return (
     <Router>

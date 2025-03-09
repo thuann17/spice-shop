@@ -31,12 +31,23 @@ const Header = ({ onSelectCategory }) => {
   };
 
   return (
-    <div>
+    <div className="mb-14">
+      {" "}
+      <div
+        className={`fixed top-0 left-0 w-full bg-primary text-white p-1 text-center transition-all duration-300 ${
+          isScrolled
+            ? "-translate-y-full opacity-0"
+            : "translate-y-0 opacity-100"
+        }`}
+      >
+        📍 Địa chỉ: Ninh Kiều Cần Thơ
+      </div>
       {/* Header */}
       <header
         className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
           isScrolled ? "shadow-md" : ""
         }`}
+        style={{ marginTop: isScrolled ? "0" : "32px" }}
       >
         <div className="flex justify-between    items-center ">
           <h1 className="text-sm md:text-3xl font-bold text-textMain md:mx-2">
