@@ -6,8 +6,8 @@ import CustomerLayout from "../layouts/customer/CustomerLayout";
 import HomePage from "../pages/Customer/Home/HomePage";
 import Service from "../pages/Customer/DichVuLuuDong/DichVu";
 import ManagerLayout from "../layouts/manager/ManagerLayout";
-import Contact from "../pages/Contact";
-import About from "../pages/About";
+import Contact from "../pages/Customer/Contact";
+import About from "../pages/Customer/About";
 import Dashboard from "../pages/Manager/Dashboard/index";
 import ProductManager from "../pages/Manager/Product/index";
 import ProductManager2 from "../pages/Manager/Product/test";
@@ -24,7 +24,7 @@ const AppRouter = () => {
           <Route path="detail/:id" element={<ChiTietSanPham />} />
         </Route>
         <Route path="/manager" element={<ManagerLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="" element={<Dashboard />} />
           <Route path="product" element={<ProductManager />} />
           <Route path="product2" element={<ProductManager2 />} />
           <Route path="menu" element={<Dashboard />} />
