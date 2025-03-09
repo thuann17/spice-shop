@@ -19,7 +19,8 @@ const AsideManager = ({ isMobile, toggleSidebar }) => {
         <nav className="space-y-2">
           <MenuItem icon="📊" text="Trang chủ" to="/manager" />
           <MenuItem icon="📅" text="Sản phẩm" to="/manager/product" />
-          <MenuItem icon="👤" text="Menu" to="/manager/menu" />
+          <MenuItem icon="👤" text="Sản phẩm 2" to="/manager/product2" />
+          <MenuItem icon="👤" text="Menu" to="/manager/service" />
           <MenuItem icon="👤" text="Cấp tài khoản quản lý" to="/manager/r" />
         </nav>
       </aside>

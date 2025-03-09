@@ -12,6 +12,7 @@ import Dashboard from "../pages/Manager/Dashboard/index";
 import ProductManager from "../pages/Manager/Product/index";
 import ProductManager2 from "../pages/Manager/Product/test";
 import ChiTietSanPham from "../pages/Customer/ChiTietSanPham";
+import DichVuTiecLuuDong from "../pages/Manager/DichVuTiecLuuDong/index";
 const AppRouter = () => {
   return (
     <Router>
@@ -27,7 +28,7 @@ const AppRouter = () => {
           <Route path="" element={<Dashboard />} />
           <Route path="product" element={<ProductManager />} />
           <Route path="product2" element={<ProductManager2 />} />
-          <Route path="menu" element={<Dashboard />} />
+          <Route path="service" element={<DichVuTiecLuuDong />} />
         </Route>
         <Route path="menu-list1" element={<Menus1 />} />
         <Route path="menu-list2" element={<Menus2 />} />

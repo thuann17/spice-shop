@@ -1,4 +1,9 @@
+import { useState } from "react";
+import FileUpload from "../../../../components/FileUpload/index";
+
 const AddProduct = ({ isOpen, onClose }) => {
+  const [images, setImages] = useState([]);
+
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ${
@@ -21,7 +26,7 @@ const AddProduct = ({ isOpen, onClose }) => {
               <label className="block text-gray-700">Tên sản phẩm</label>
               <input
                 type="text"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 border text-black border-gray-300 rounded-lg"
                 placeholder="Nhập tên sản phẩm"
               />
             </div>
@@ -30,19 +35,22 @@ const AddProduct = ({ isOpen, onClose }) => {
               <label className="block text-gray-700">Giá</label>
               <input
                 type="number"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 border text-black border-gray-300 rounded-lg"
                 placeholder="Nhập giá sản phẩm"
               />
             </div>
 
             <div className="mb-4">
               <label className="block text-gray-700">Trạng thái</label>
-              <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+              <select className="w-full text-black p-3 border border-gray-300 rounded-lg ">
                 <option value="Available">Còn hàng</option>
                 <option value="Out of Stock">Hết hàng</option>
                 <option value="Limited">Sắp hết</option>
               </select>
             </div>
+
+            {/* Upload Images */}
+            <FileUpload images={images} setImages={setImages} />
 
             <button
               type="submit"
