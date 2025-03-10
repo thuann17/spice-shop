@@ -23,14 +23,17 @@ const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("Sốt và nước chấm");
 
   return (
-    <div className="flex flex-col min-h-screen bg-background mt-3">
-      <Banner />
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mx-4 mt-4 mb-4">
-        <div className="col-span-1 md:col-span-3">
-          <Aside />
-        </div>
-        <div className="col-span-1 md:col-span-9">
-          <CardGrid products={productData[selectedCategory] || []} />
+    <div>
+      <Header onSelectCategory={setSelectedCategory} />
+      <div className="flex flex-col min-h-screen bg-background mt-3">
+        <Banner />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mx-4 mt-4 mb-4">
+          <div className="col-span-1 md:col-span-3">
+            <Aside />
+          </div>
+          <div className="col-span-1 md:col-span-9">
+            <CardGrid products={productData[selectedCategory] || []} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import LoginModal from "../modal/LoginModal";
+
 const categories = [
   { name: "Sốt và nước chấm", link: "/sauces" },
   { name: "Món ăn", link: "/foods" },
-  { name: "Dịch vụ lưu động", link: "/services" },
 ];
 
 const menuItems = [
@@ -32,7 +32,6 @@ const Header = ({ onSelectCategory }) => {
 
   return (
     <div className="mb-14">
-      {" "}
       <div
         className={`fixed top-0 left-0 w-full bg-primary text-white p-1 text-center transition-all duration-300 ${
           isScrolled
@@ -44,27 +43,33 @@ const Header = ({ onSelectCategory }) => {
       </div>
       {/* Header */}
       <header
-        className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4  transition-all duration-200 ${
+        className={`fixed top-0 z-50 left-0 w-full bg-secondary text-white p-4 transition-all duration-200 ${
           isScrolled ? "shadow-md" : ""
         }`}
         style={{ marginTop: isScrolled ? "0" : "32px" }}
       >
-        <div className="flex justify-between    items-center ">
+        <div className="flex justify-between items-center">
           <h1 className="text-sm md:text-3xl font-bold text-textMain md:mx-2">
             Logo
           </h1>
           {/* danh mục chính */}
-          <div className="flex items-center  md:justify-between lg:-ml-32 xl:ml-64 md:space-x-4">
-            <nav className=" flex flex-1   flex-nowrap  justify-center md:gap-3 ">
+          <div className="flex items-center md:justify-between lg:-ml-32 xl:ml-64 md:space-x-4">
+            <nav className="flex flex-1 flex-nowrap justify-center md:gap-3">
               {categories.map((category, index) => (
-                <a
+                <button
                   key={index}
-                  href={category.link}
+                  onClick={() => onSelectCategory(category.name)}
                   className="px-1 mx-0.5 md:px-11 lg:px-3 py-1 text-[10px] sm:text-base bg-[#9C6B4A] text-white rounded-md shadow-md hover:bg-[#D7A98C] transition"
                 >
                   {category.name}
-                </a>
+                </button>
               ))}
+              <a
+                href="/services"
+                className="px-1 mx-0.5 md:px-11 lg:px-3 py-1 text-[10px] sm:text-base bg-[#9C6B4A] text-white rounded-md shadow-md hover:bg-[#D7A98C] transition"
+              >
+                Dịch vụ lưu động
+              </a>
             </nav>
           </div>
           {/* Nút mở menu trên mobile */}
@@ -99,7 +104,6 @@ const Header = ({ onSelectCategory }) => {
         </div>
 
         {/* Menu Mobile */}
-
         {isMenuOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
@@ -108,7 +112,11 @@ const Header = ({ onSelectCategory }) => {
         )}
         <div
           className={`lg:hidden fixed top-0 left-0 h-full w-3/4 max-w-xs bg-secondary text-textMain transform transition-all duration-300 ease-in-out shadow-lg 
-  ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+            ${
+              isMenuOpen
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-full opacity-0"
+            }`}
         >
           {/* Header Menu */}
           <div className="p-4 flex items-center justify-between border-b border-gray-300">

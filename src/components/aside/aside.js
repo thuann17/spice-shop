@@ -1,8 +1,5 @@
 import React from "react";
 import videoFile from "../../assets/images/6336741841146.mp4";
-
-const categories = ["Sốt và nước chấm", "Món ăn", "Dịch vụ lưu động"];
-
 const Aside = () => {
   return (
     <>
