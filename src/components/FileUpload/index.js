@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FileUpload = ({ images, setImages }) => {
+const FileUpload = ({ images, setImages, label }) => {
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
     const newImages = files.map((file) => ({
@@ -25,7 +25,7 @@ const FileUpload = ({ images, setImages }) => {
           onChange={handleImageUpload}
           className="hidden"
         />
-        <span className="text-gray-500">+ Chọn ảnh</span>
+        <span className="text-gray-500">+ {label}</span>
       </label>
 
       {/* Hiển thị ảnh */}

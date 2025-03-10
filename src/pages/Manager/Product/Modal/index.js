@@ -13,7 +13,7 @@ const AddProduct = ({ isOpen, onClose }) => {
       <div className="bg-white rounded-lg shadow-lg w-96 overflow-hidden">
         {/* Header */}
         <div className="bg-purple-600 p-4 text-white flex justify-between items-center">
-          <h5 className="font-semibold">Thêm sản phẩm</h5>
+          <h5 className="font-semibold">Thêm dịch vụ</h5>
           <button onClick={onClose} className="text-white text-xl">
             &times;
           </button>
@@ -23,7 +23,7 @@ const AddProduct = ({ isOpen, onClose }) => {
         <div className="p-6">
           <form>
             <div className="mb-4">
-              <label className="block text-gray-700">Tên sản phẩm</label>
+              <label className="block text-gray-700">Tên dịch vụ</label>
               <input
                 type="text"
                 className="w-full p-3 border text-black border-gray-300 rounded-lg"
@@ -32,31 +32,24 @@ const AddProduct = ({ isOpen, onClose }) => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700">Giá</label>
+              <label className="block text-gray-700">Khoảng giá</label>
               <input
                 type="number"
                 className="w-full p-3 border text-black border-gray-300 rounded-lg"
                 placeholder="Nhập giá sản phẩm"
               />
             </div>
-
-            <div className="mb-4">
-              <label className="block text-gray-700">Trạng thái</label>
-              <select className="w-full text-black p-3 border border-gray-300 rounded-lg ">
-                <option value="Available">Còn hàng</option>
-                <option value="Out of Stock">Hết hàng</option>
-                <option value="Limited">Sắp hết</option>
-              </select>
-            </div>
-
-            {/* Upload Images */}
-            <FileUpload images={images} setImages={setImages} />
+            <FileUpload
+              images={images}
+              setImages={setImages}
+              label={"Chọn ảnh đại diện"}
+            />
 
             <button
               type="submit"
               className="w-full bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition"
             >
-              Thêm sản phẩm
+              Thêm dịch vụ
             </button>
           </form>
         </div>
