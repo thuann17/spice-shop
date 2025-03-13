@@ -36,7 +36,7 @@ const HomePage = () => {
           <Aside />
         </div>
         <div className="col-span-1 md:col-span-9">
-          <CardGrid products={productData[selectedCategory] || []} />
+          <CardGrid />
         </div>
       </div>
     </div>
