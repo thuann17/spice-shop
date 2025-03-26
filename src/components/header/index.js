@@ -17,6 +17,8 @@ const Header = ({ onSelectCategory }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);

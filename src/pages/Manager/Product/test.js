@@ -26,7 +26,8 @@ const ProductManager2 = () => {
     setProducts(updatedProducts);
   };
 
-  // Cập nhật vị trí khi nhập tay
+  // Cập nhật vị trí khi nn
+  // hập tay
   const handlePositionChange = (e, id) => {
     const newPosition = parseInt(e.target.value, 10) || 1;
     let updatedProducts = products.map((item) =>
