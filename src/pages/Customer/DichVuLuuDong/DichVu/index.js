@@ -2,8 +2,7 @@ import CardList from "../CardList/index";
 
 const Service = () => {
   return (
-    <div className="mt-10">
-      
+    <div className="mt-10">     
       <CardList />
     </div>
   );
