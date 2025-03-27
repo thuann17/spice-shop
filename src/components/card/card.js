@@ -9,13 +9,11 @@ const Card = ({ product }) => {
           className="bg-background border h-80 border-border
        rounded-2xl shadow-md overflow-hidden relative"
         >
-          <a href="#">
-            <img
-              className="w-full h-44 object-cover p-4 rounded-t-xl"
-              src={product.img}
-              alt={product.name}
-            />
-          </a>
+          <img
+            className="w-full h-44 object-cover p-4 rounded-t-xl"
+            src={product.imageUrls[0]}
+            alt={product.name}
+          />
           <div className="absolute top-1 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
             Còn hàng
           </div>

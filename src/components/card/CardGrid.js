@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Card from "./card";
 
-const CardGrid = ({ products }) => {
-  const itemsPerPage = 16; // Số sản phẩm trên mỗi trang
+const CardGrid = () => {
+  const [products, setProducts] = useState([]);
+  const itemsPerPage = 16;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Tính toán số trang tối đa
+  //
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/spices");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Lỗi khi lấy dữ liệu sản phẩm:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
-  // Lấy danh sách sản phẩm của trang hiện tại
   const currentProducts = products.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // Chuyển trang
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -35,7 +48,6 @@ const CardGrid = ({ products }) => {
         )}
       </div>
 
-      {/* Phân trang */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
           {[...Array(totalPages)].map((_, index) => (
@@ -50,7 +62,7 @@ const CardGrid = ({ products }) => {
             >
               {index + 1}
             </button>
-          ))}{" "}
+          ))}
         </div>
       )}
     </div>
